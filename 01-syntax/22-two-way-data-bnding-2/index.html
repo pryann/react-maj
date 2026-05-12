@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Hello World</title>
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <!-- Don't use this in production: -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            const { useState, useEffect } = React
+
+            function App() {
+                const initialState = {
+                    name: '',
+                    email: '',
+                }
+
+                const [state, setState] = useState(initialState)
+
+                function handleChange(event) {
+                    const { name, value } = event.target
+                    setState((prevState) => ({ ...prevState, [name]: value }))
+                }
+
+                function handleSubmit(event) {
+                    event.preventDefault()
+                    console.log(state)
+                    setState(initialState)
+                }
+
+                return (
+                    <form onSubmit={handleSubmit}>
+                        <div>
+                            <label htmlFor="name">Name: </label>
+                            <input type="text" id="name" name="name" value={state.name} onChange={handleChange} />
+                            {state.name}
+                        </div>
+                        <div>
+                            <label htmlFor="email">Email: </label>
+                            <input type="email" id="email" name="email" value={state.email} onChange={handleChange} />
+                            {state.email}
+                        </div>
+                        <div>
+                            <button type="submit">Submit</button>
+                        </div>
+                    </form>
+                )
+            }
+
+            const container = document.getElementById('root')
+            const root = ReactDOM.createRoot(container)
+            root.render(<App />)
+        </script>
+    </body>
+</html>
