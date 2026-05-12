@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Hello World</title>
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <!-- Don't use this in production: -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            const { useState, useEffect } = React
+
+            function App() {
+                const money = 50
+
+                const [price, setPrice] = useState(0)
+                const [errorMessage, setErrorMessage] = useState(null)
+
+                function increasePrice(value) {
+                    setPrice(price + value)
+                }
+
+                function decreasePrice(value) {
+                    setPrice(price - value)
+                }
+
+                const formattedPrice = new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'EUR',
+                }).format(price)
+
+                // No dependency array means that the effect will run after every render
+                // Passing an empty array means that the effect will run only once, after the first render
+                // Passing an array with dependencies means that the effect will run after the first render and after every render where the dependencies have changed
+                useEffect(() => {
+                    setErrorMessage(price > money ? 'Not enough money' : null)
+                }, [price])
+
+            
+                return (
+                    <>
+                        <h1>Basket</h1>
+                        <div>
+                            <button onClick={() => increasePrice(10)}>+</button>
+                            <span>{formattedPrice}</span>
+                            <button onClick={() => decreasePrice(10)}>-</button>
+                            {errorMessage && <p>{errorMessage}</p>}
+                        </div>
+                    </>
+                )
+            }
+
+            const container = document.getElementById('root')
+            const root = ReactDOM.createRoot(container)
+            root.render(<App />)
+        </script>
+    </body>
+</html>
