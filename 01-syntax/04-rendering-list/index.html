@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Hello World</title>
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <!-- Don't use this in production: -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            function App() {
+                const frameworks = ['Vue', 'React', 'Angular']
+
+                // always use a unique key prop when rendering lists of elements
+                return (
+                    <ul>
+                        {frameworks.map((framework, index) => (
+                            <li key={index}>{framework}</li>
+                        ))}
+                    </ul>
+                )
+            }
+
+            const container = document.getElementById('root')
+            const root = ReactDOM.createRoot(container)
+            root.render(<App />)
+        </script>
+    </body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Hello World</title>
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <!-- Don't use this in production: -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            function App() {
+                const guitars = [
+                    {
+                        id: 1,
+                        name: 'Ibanez S6570SK-STB Prestige',
+                        stock: 0,
+                    },
+                    {
+                        id: 2,
+                        name: 'Fender AM Ultra Luxe Strat MN PRB',
+                        stock: 2,
+                    },
+                    {
+                        id: 3,
+                        name: 'FGN Expert Odyssey SBB',
+                        stock: 11,
+                    },
+                    {
+                        id: 4,
+                        name: 'Gibson SG Standard Reissue Cherry VOS',
+                        stock: 1,
+                    },
+                    {
+                        id: 5,
+                        name: 'Jackson SL2A MAH Pro Soloist UWH',
+                        stock: 25,
+                    },
+                ]
+
+                return (
+                    <div>
+                        {guitars.map(({ id, name, stock }) => (
+                            <div key={id}>
+                                <h2>{name}</h2>
+                                {stock === 0
+                                    ? 'Out of stock'
+                                    : stock < 3
+                                      ? `Last chance, only ${stock} in stock`
+                                      : 'In stock'}
+                            </div>
+                        ))}
+                    </div>
+                )
+            }
+
+            const container = document.getElementById('root')
+            const root = ReactDOM.createRoot(container)
+            root.render(<App />)
+        </script>
+    </body>
+</html>

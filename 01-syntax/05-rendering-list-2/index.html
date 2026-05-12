@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Hello World</title>
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <!-- Don't use this in production: -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            function App() {
+                const frameworks = [
+                    { id: 1, name: 'Vue' },
+                    { id: 2, name: 'React' },
+                    { id: 3, name: 'Angular' },
+                ]
+
+                // always use a unique key prop when rendering lists of elements
+
+                return (
+                    <ul>
+                        {frameworks.map(({ id, name }) => (
+                            <li key={id}>{name}</li>
+                        ))}
+                    </ul>
+                )
+            }
+
+            // function App() {
+            //     const frameworks = [
+            //         { id: 1, name: 'Vue' },
+            //         { id: 2, name: 'React' },
+            //         { id: 3, name: 'Angular' },
+            //     ]
+
+            //     // not recommended way
+            //     const frameworkList = frameworks.map(({ id, name }) => <li key={id}>{name}</li>)
+
+            //     return <ul>{frameworkList}</ul>
+            // }
+
+            const container = document.getElementById('root')
+            const root = ReactDOM.createRoot(container)
+            root.render(<App />)
+        </script>
+    </body>
+</html>
