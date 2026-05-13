@@ -11,7 +11,7 @@ function SearchBar({ onFormSubmit }) {
     return (
         <div className="search-bar my-3">
             <form className="form" onSubmit={handleSubmit}>
-                <div className="form-group justify-content-center">
+                <div className="justify-content-center align-items-center d-flex">
                     <input
                         type="text"
                         id="search"

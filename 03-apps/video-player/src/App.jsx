@@ -8,7 +8,9 @@ import VideoList from './components/VideoList'
 
 function App() {
     const [videos, setVideos] = useState(null)
+    const [selectedVideo, setSelectedVideo] = useState(null)
 
+    // refactor: separate: searchVideos, updateVideo, etc to functions
     async function searchVideos(q) {
         const response = await youtubeApi.get('/search', {
             params: {
@@ -16,9 +18,11 @@ function App() {
                 q,
             },
         })
-        setVideos(response.data.items)
-        console.log(videos)
+        const { items } = response.data
+        setVideos(items)
+        setSelectedVideo(items[0])
     }
+
     useEffect(() => {
         searchVideos('React Js')
     }, [])
@@ -35,10 +39,10 @@ function App() {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-8">
-                                <VideoDetail />
+                                <VideoDetail video={selectedVideo} />
                             </div>
                             <div className="col-lg-4">
-                                <VideoList videos={videos} />
+                                <VideoList videos={videos} onSelectVideo={setSelectedVideo} />
                             </div>
                         </div>
                     </div>
