@@ -1,12 +1,12 @@
 import '../assets/css/MainNavigation.css'
 
-function MainNavigation() {
+function MainNavigation({ title }) {
     return (
         <nav className="navigation">
             <ul className="navigation__list">
                 <li className="navigation_item">
                     <a className="navigation__link navigation__link--active" href="/">
-                        React App
+                        {title}
                     </a>
                 </li>
                 <li className="navigation_item">

@@ -1,7 +1,7 @@
 import '../assets/css/SiteContent.css'
 
-function SiteContent() {
-    return <main className="main">Content</main>
+function SiteContent({ children }) {
+    return <main className="main">{children}</main>
 }
 
 export default SiteContent
