@@ -4,5 +4,6 @@ Készítsd űrlapot, ahol a következő adatok kellenek:
 - Számlázás típusa: magánszemély vagy céges
 - Ország
 - Irsz
+- - város
 - Cím (közterület neve és jellege, épület, házszám, emelet, ajtó, stb egybe egy mezőbe)
 - HA céges akkor jelenjen meg az adószám mező, ha magánszemélyre szól akkor ne jelenjen meg 

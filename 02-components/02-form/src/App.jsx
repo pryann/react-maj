@@ -1,11 +1,11 @@
 import './App.css'
-import UserForm from './components/UserForm'
+import BillingAddressForm from './components/BillingAddressForm'
 
 function App() {
     return (
         <main>
             <h1>User form app</h1>
-            <UserForm />
+            <BillingAddressForm />
         </main>
     )
 }
