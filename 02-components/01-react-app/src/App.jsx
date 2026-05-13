@@ -13,12 +13,16 @@ function App() {
         console.log('Input focused, modified')
     }
 
+    function handleInput(value) {
+        console.log('Input value:', value)
+    }
+
     return (
         <>
             <MainNavigation title="App" />
             <SiteContent>
-                <InputField handleFocus={handleFocus} />
-                <InputField handleFocus={handleFocusMod} />
+                <InputField handleFocus={handleFocus} handleInput={handleInput} />
+                <InputField handleFocus={handleFocusMod} handleInput={handleInput} />
             </SiteContent>
             <SiteFooter />
         </>
