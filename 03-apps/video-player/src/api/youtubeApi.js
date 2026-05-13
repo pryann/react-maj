@@ -1,7 +1,7 @@
 // ALWAYS store API keys in environment variables, never hardcode them in your codebase
 import axios from 'axios'
 
-const key = 'AIzaSyBfI8OUjapJB15O4ZlgtYRw2eVm1m_89aw'
+const key = 'your api key here'
 
 export const defaultParams = {
     part: 'snippet',
