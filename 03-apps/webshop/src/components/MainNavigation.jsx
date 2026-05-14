@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
+import { useCartStore } from '../features/cart'
 
 function MainNavigation() {
+    const { totalCount } = useCartStore()
+
     return (
         <nav className="main-navigation">
             <ul className="main-navigation__list">
@@ -11,7 +14,7 @@ function MainNavigation() {
                 </li>
                 <li className="main-navigation__item">
                     <Link className="main-navigation__link" to="/cart">
-                        Cart (0)
+                        Cart ({totalCount})
                     </Link>
                 </li>
             </ul>
