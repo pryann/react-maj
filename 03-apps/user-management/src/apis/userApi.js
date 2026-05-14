@@ -9,7 +9,10 @@ export async function getUsers() {
     return response.data
 }
 
-export async function updateUser() {}
+export async function updateUser(id, userUpdatePayload) {
+    const response = await apiClient.put(`${urlFragment}/${id}`, userUpdatePayload)
+    return response.data
+}
 
 export async function createUser() {}
 

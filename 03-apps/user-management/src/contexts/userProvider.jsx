@@ -27,5 +27,14 @@ export function UserProvider({ children }) {
         }
     }
 
-    return <UserContext.Provider value={{ users, removeUser }}>{children}</UserContext.Provider>
+    const updateUser = async (id, updatedUserPayload) => {
+        try {
+            const updatedUser = await userApi.updateUser(id, updatedUserPayload)
+            setUsers((prevUsers) => prevUsers.map((user) => (user.id === id ? updatedUser : user)))
+        } catch (error) {
+            console.error('Error updating user:', error.message)
+        }
+    }
+
+    return <UserContext.Provider value={{ users, removeUser, updateUser }}>{children}</UserContext.Provider>
 }
