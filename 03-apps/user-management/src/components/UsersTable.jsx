@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useUserStore } from '../contexts/userStore'
 import DeleteUserButton from './DeleteuserButton'
 import EditUserModal from './EditUserModal'
+import OpenEditUserModalButton from './OpenEditUserModalButton'
 
 function UsersTable() {
     // const { users } = useContext(UserContext)
@@ -32,13 +33,7 @@ function UsersTable() {
                             <td>{user.email}</td>
                             <th>
                                 <DeleteUserButton userId={user.id} />
-                                <button
-                                    className="btn btn-primary"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#editUserModal"
-                                    onClick={() => setSelectedUser(user)}>
-                                    Edit
-                                </button>
+                                <OpenEditUserModalButton user={user} onSelectUser={setSelectedUser} />
                             </th>
                         </tr>
                     ))}

@@ -14,7 +14,10 @@ export async function updateUser(id, userUpdatePayload) {
     return response.data
 }
 
-export async function createUser() {}
+export async function createUser(userCreatePayload) {
+    const response = await apiClient.post(urlFragment, userCreatePayload)
+    return response.data
+}
 
 export async function deleteUser(id) {
     await apiClient.delete(`${urlFragment}/${id}`)

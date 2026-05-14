@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "3",
-      "firstName": "Sa",
+      "firstName": "Sasdfsfsf",
       "lastName": "Double",
       "email": "sdouble2@nyu.edu"
     },
@@ -587,6 +587,24 @@
       "firstName": "Kennedy",
       "lastName": "Bick",
       "email": "kbick2r@gravatar.com"
+    },
+    {
+      "id": "ORnEJQqEWIE",
+      "firstName": "Gergely",
+      "lastName": "Gáll",
+      "email": "pryann@gmail.com"
+    },
+    {
+      "id": "SgmD-JOb714",
+      "firstName": "Gergely",
+      "lastName": "Gáll",
+      "email": "pryann@gmail.com"
+    },
+    {
+      "id": "vdMmPTcIAv0",
+      "firstName": "Gergely",
+      "lastName": "Gáll",
+      "email": "pryann@gmail.com"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
