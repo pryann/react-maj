@@ -1,0 +1,2 @@
+/* in a real app never import the whole framework if you do not need it */
+@import 'bootstrap/dist/css/bootstrap.min.css';
